@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fetch data from the local server.
     fetchAnimals();
   });
-  
+  // Fetch http://localhost:300/characters .
   function fetchAnimals() {
     fetch("http://localhost:3000/characters")
       .then((resp) => resp.json())
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bar = document.querySelector("#character-bar");
     const barSpan = document.createElement("span");
     barSpan.innerHTML = character.name;
+    // Append barSpan.
     bar.appendChild(barSpan);
     barSpan.style.cursor = "pointer";
     barSpan.addEventListener("click", () => {
@@ -48,9 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Create a pointer. 
   resetVotes.style.cursor = "pointer";
   // Add an event listener that fires when the user clicks a button.
+  // Set default animal votes to 0.
   resetVotes.addEventListener("click", () => {
     currentAnimal.votes = 0;
     showAnimal(currentAnimal);
+    // Reset a form's default values.
     form.reset();
   });
   // Adding votes.
@@ -58,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputvotes = document.querySelector("input#votes");
   const animalVotes = document.querySelector("span#vote-count");
   const form = document.querySelector("form#votes-form");
-  
+  // Capture the submit event.
   form.addEventListener("submit", (e) => {
     // Prevent the event's default acction from occuring.
     e.preventDefault();
