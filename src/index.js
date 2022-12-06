@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fetch data from the local server.
     fetchAnimals();
   });
-  // Fetch http://localhost:300/characters .
+  // Fetch http://localhost:300/characters.
   function fetchAnimals() {
     fetch("http://localhost:3000/characters")
       .then((resp) => resp.json())
@@ -53,12 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
   resetVotes.addEventListener("click", () => {
     currentAnimal.votes = 0;
     showAnimal(currentAnimal);
-    // Reset a form's default values.
+    // Reset the form's default values.
     form.reset();
   });
   // Adding votes.
-  
-  const inputvotes = document.querySelector("input#votes");
+   const inputvotes = document.querySelector("input#votes");
   const animalVotes = document.querySelector("span#vote-count");
   const form = document.querySelector("form#votes-form");
   // Capture the submit event.
