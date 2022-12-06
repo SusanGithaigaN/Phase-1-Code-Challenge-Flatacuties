@@ -7,34 +7,34 @@ document.addEventListener("DOMContentLoaded", () => {
   function fetchAnimals() {
     fetch("http://localhost:3000/characters")
       .then((resp) => resp.json())
-      .then(CharacterBar);
+      .then(myCharacter);
   }
   // Takes in a number of characters but only renders them one by one
-  function CharacterBar(characters) {
-    characters.forEach(barDetails);
+  function myCharacter(characters) {
+    characters.forEach(myDetails);
   }
   // Render animals.
-  let currentAnimal;
-  function barDetails(character) {
+  let myFlatacutie;
+  function myDetails(character) {
     const characterId = character.id;
     // const characterName= character.characterName
     const characterImage = character.image;
     const characterVotes = character.votes;
     const bar = document.querySelector("#character-bar");
-    const barSpan = document.createElement("span");
-    barSpan.innerHTML = character.name;
-    // Append barSpan.
-    bar.appendChild(barSpan);
-    barSpan.style.cursor = "pointer";
-    barSpan.addEventListener("click", () => {
+    const spanDetails = document.createElement("span");
+    spanDetails.innerHTML = character.name;
+    // Append spanDetails.
+    bar.appendChild(spanDetails);
+    spanDetails.style.cursor = "pointer";
+    spanDetails.addEventListener("click", () => {
       // Store the state.
-      currentAnimal = character;
+      myFlatacutie = character;
       // Show data that is specific to a given animal.
-      showAnimal(character);
+      showFlatacutie(character);
     });
   }
   // Display the selected data.
-  function showAnimal(character) {
+  function showFlatacutie(character) {
     const characterName = document.querySelector("p#name");
     characterName.innerHTML = character.name;
     const characterImg = document.querySelector("img#image");
@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add an event listener that fires when the user clicks a button.
   // Set default animal votes to 0.
   resetVotes.addEventListener("click", () => {
-    currentAnimal.votes = 0;
-    showAnimal(currentAnimal);
+    myFlatacutie.votes = 0;
+    showFlatacutie(myFlatacutie);
     // Reset the form's default values.
     form.reset();
   });
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Prevent the event's default acction from occuring.
     e.preventDefault();
   //   Return the value provided and display the results together with the animal's details.
-    currentAnimal.votes += parseInt(e.target.votes.value, 10);
-    showAnimal(currentAnimal);
+  myFlatacutie.votes += parseInt(e.target.votes.value, 10);
+  showFlatacutie(myFlatacutie);
     form.reset();
   });
