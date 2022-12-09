@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form#votes-form");
   // Capture the submit event.
   form.addEventListener("submit", (e) => {
-    // Prevent the event's default acction from occuring.
+    // Prevent the event's default action from occuring.
     e.preventDefault();
   //   Return the value provided and display the results together with the animal's details.
   myFlatacutie.votes += parseInt(e.target.votes.value, 10);
